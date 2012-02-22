@@ -6,9 +6,9 @@ The author knows that if a broken VCF file is used for an important project to f
 UCSC curates NCBI's dbSNP data before release at the UCSC Genome Database. However, only NCBI releases the dbSNP information in the VCF format. If you need UCSC-curated dbSNP information (dbSNP13x, dbSNP13xCommon, etc.) in the VCF format, you have to do that by yourself.
 
 ## Dependency
- gem install bio
- gem install bio-ucsc-api
- gem install striuct
+ * `gem install bio`
+ * `gem install bio-ucsc-api`
+ * `gem install striuct`
 
 ## Prepare file
 1. download reference sequence in the 2bit file format. For example, the human hg19 reference sequence is available at http://hgdownload.cse.ucsc.edu/goldenPath/hg19/bigZips/hg19.2bit
