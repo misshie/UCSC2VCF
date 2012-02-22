@@ -62,7 +62,7 @@ module Ucsc2Vcf
     end
   end
 
-  class Apprication
+  class Application
     def initialize(opts)
       @opts = opts
       unless opts[:snv]
@@ -250,6 +250,6 @@ if __FILE__ == $0
     o.separator " last update: #{o.version}"
     o.parse!
   end  
-  Ucsc2Vcf::Apprication.new(opts).run
+  Ucsc2Vcf::Application.new(opts).run
 end
 
