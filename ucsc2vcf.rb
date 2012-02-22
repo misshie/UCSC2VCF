@@ -1,4 +1,4 @@
-#!/bin/env ruby
+d#!/bin/env ruby
 # ucsc2vcf.rb
 # programmed by (c) MISHIMA, Hiroyuki (hmishima at nagasaki-u.ac.jp)
 # License: the MIT/X11 license
@@ -232,7 +232,7 @@ if __FILE__ == $0
   
   # ARGV[0] = "--help" if ARGV.length == 0
   ARGV.options do |o|
-    o.banner = "geneint.rb [option] [filename(or stdin)]"
+    o.banner = "ucsc2vcf.rb [option] [filename(or stdin)]"
     o.on('-s', '--snv',
          'output SNV/SNP loci (can be combined with -i') do
       opts[:snv] = true
