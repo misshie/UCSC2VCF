@@ -1,4 +1,4 @@
-d#!/bin/env ruby
+#!/bin/env ruby
 # ucsc2vcf.rb
 # programmed by (c) MISHIMA, Hiroyuki (hmishima at nagasaki-u.ac.jp)
 # License: the MIT/X11 license
