@@ -1,9 +1,10 @@
-#!/bin/env ruby
+#!/usr/bin/env ruby
 # ucsc2vcf.rb
 # programmed by (c) MISHIMA, Hiroyuki (hmishima at nagasaki-u.ac.jp)
 # License: the MIT/X11 license
 
-Version = "20120202"
+#Version = "20120202"
+Version = "20171206"
 
 require 'optparse'
 require 'bio'
@@ -65,7 +66,7 @@ module Ucsc2Vcf
   class Application
     def initialize(opts)
       @opts = opts
-      unless opts[:snv]
+      if opts[:indel]
         load_reference
       end
     end
@@ -178,7 +179,7 @@ EOF
       when "+"
         vcf.alt =
           cols.observed.split("/") \
-          .reject{|x|x==cols.refUCSC}.join(",") 
+          .reject{|x|x==cols.refUCSC}.join(",")
       when "-"
         vcf.alt =
           cols.observed.split("/") \
@@ -219,8 +220,8 @@ EOF
 
     def run
       output_header
-      ARGF.lines.each do |row|
-        locus Columns.new *(row.chomp.split("\t"))
+      ARGF.each_line.each do |row|
+        locus Columns.new(*(row.chomp.split("\t")))
       end
     end
   end
@@ -252,4 +253,3 @@ if __FILE__ == $0
   end  
   Ucsc2Vcf::Application.new(opts).run
 end
-

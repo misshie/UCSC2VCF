@@ -1,3 +1,4 @@
 *.vcf
 *.txt
 *.2bit
+*.gz

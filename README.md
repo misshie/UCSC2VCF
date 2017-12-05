@@ -10,17 +10,18 @@ UCSC curates NCBI's dbSNP data before release at the UCSC Genome Database. Howev
  * `gem install bio-ucsc-api`
  * `gem install striuct`
 
-## Prepare file
+## Input file preparation
 1. download reference sequence in the 2bit file format. For example, the human hg19 reference sequence is available at http://hgdownload.cse.ucsc.edu/goldenPath/hg19/bigZips/hg19.2bit
 2. download UCSC's dbSNP table using "Table Browser". Select "Group: Variation and Repeats" and "All SNPs (135)" or your favorite database. Then select "genome", select "all fields from selected table", and download (using gzip compress is better).
 3. The VCF header is hard-coded in the script. Please change it if you do not use dbSNP135. 
 
 ## How to use
-    ucsc2vcf -r reference.2bit --snv --indel > results.vcf
+    ucsc2vcf -r reference.2bit --snv --indel hg19_snp135.txt > results.vcf
+    zcat hg19_snp135.txt.gz | ucsc2vcf -r reference.2bit --snv --indel > results.vcf
 
 * `--snv` outputs "single nucleotide -> single nucleotide substitutions". Can be combined with `--indel`.
 * `--indel` outputs " '-' to nucleotide(s) or nucleotide(s) to '-' substitutions". Can be combined with `--snv`.
 * Other variations such as large indels (allels are not [-ATGC]) are all ignored.
 
 ## Copyright
- MISHIMA, Hiroyuki (hmishima at nagasaki-u.ac.jp, @mishimahryk at Twitter), 2012
+ MISHIMA, Hiroyuki (hmishima at nagasaki-u.ac.jp, @mishimahryk at Twitter), 2012-2017
